@@ -384,4 +384,6 @@ const bannerBgImage = await getImage({ src: bannerBg });
 	window.initMap = initMap;
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv0PjSqejA7tdzg68pibCXgaGNwyS0-4M&callback=initMap"></script>
+<script src="config.js"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key= + GOOGLE_MAPS_API&callback=initMap"></script>
