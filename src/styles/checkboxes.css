@@ -1,0 +1,39 @@
+/* reset */
+button {
+	all: unset;
+}
+
+.CheckboxRoot {
+	background-color: var(--input-checkbox-bg-clr);
+	width: 19px;
+	height: 19px;
+	border-radius: var(--input-border-radius);
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	transition: var(--input-transition);
+	cursor: pointer;
+}
+.CheckboxRoot:hover {
+	background-color: var(--theme-clr);
+}
+.CheckboxRoot:checked {
+	background-color: var(--theme-clr);
+}
+.CheckboxRoot:focus {
+	box-shadow: var(--input-boxshadow-focus);
+}
+
+.checkboxesContainer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.CheckboxIndicator {
+	width: 19px;
+	height: 19px;
+	border-radius: var(--input-border-radius);
+	background-color: var(--theme-clr);
+	color: var(--theme-clr);
+}

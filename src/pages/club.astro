@@ -1,0 +1,157 @@
+---
+import Layout from "../components/Layout.astro";
+const pageTitle = "The Diamond Rental Living - Club D";
+import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
+import banner from "../img/banner-suites.jpg";
+import svgDiamondIcon from "../img/diamond.svg";
+import clubDiamond from "../img/club-diamond.svg";
+import amenitiesFirstFloor from "../img/amenities-first-floor.webp";
+import amenitiesSecondFloor from "../img/amenities-second-floor.webp";
+import amenitiesThirdFloor from "../img/amenities-third-floor.webp";
+import amenitiesFourthFloor from "../img/amenities-fourth-floor.webp";
+
+import { getImage } from "astro:assets";
+import bannerBg from "../img/banner-suites.jpg";
+const bannerBgImage = await getImage({ src: bannerBg });
+---
+
+<Layout {pageTitle}>
+	<section class="reveal-container" style={`background-image: url('${bannerBgImage.src}')`}>
+		<Image src={svgDiamondIcon} class="reveal" alt="The Diamond icon" />
+	</section>
+
+	<section class="container top">
+		<div class="grid-container club">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18 paragraph-max-width">
+					<h1>Club D</h1>
+					<p>The Diamond is not just a building, but a purpose-built rental community with the Junction vibe, offering local flavour and a city feeling. Modern open concept 1, 2 and 3 bedroom suites overlooking the city, while connecting you to every part of it with the TTC at your doorstep and just minutes to the subway, UP Express and GO Train.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container top bottom">
+		<div class="grid-container club">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18">
+					<h1>First Floor</h1>
+				</div>
+				<div class="cell small-18 amenity-plan first">
+					<ol>
+						<li><a class="one" role="link" aria-label="Amenities first floor location identifier for Movie Theatre">Movie Theatre</a></li>
+						<li><a class="two" role="link" aria-label="Amenities first floor location identifier for Yoga Room">Yoga Room</a></li>
+						<li><a class="three" role="link" aria-label="Amenities first floor location identifier for Meeting Room">Meeting Room</a></li>
+						<li><a class="four" role="link" aria-label="Amenities first floor location identifier for Group Training Gym">Group Training Gym</a></li>
+						<li><a class="five" role="link" aria-label="Amenities first floor location identifier for Dog Spa">Dog Spa</a></li>
+						<li><a class="six" role="link" aria-label="Amenities first floor location identifier for Packages">Packages</a></li>
+						<li><a class="seven" role="link" aria-label="Amenities first floor location identifier for Lobby">Lobby</a></li>
+						<li><a class="eight" role="link" aria-label="Amenities first floor location identifier for Concierge">Concierge</a></li>
+						<li><a class="nine" role="link" aria-label="Amenities first floor location identifier for Mail Room">Mail Room</a></li>
+					</ol>
+					<div class="diamond one"><span>1</span><Image src={clubDiamond} alt="Diamond shape with number one" /></div>
+					<div class="diamond two"><span>2</span><Image src={clubDiamond} alt="Diamond shape with number two" /></div>
+					<div class="diamond three"><span>3</span><Image src={clubDiamond} alt="Diamond shape with number three" /></div>
+					<div class="diamond four"><span>4</span><Image src={clubDiamond} alt="Diamond shape with number four" /></div>
+					<div class="diamond five"><span>5</span><Image src={clubDiamond} alt="Diamond shape with number five" /></div>
+					<div class="diamond six"><span>6</span><Image src={clubDiamond} alt="Diamond shape with number six" /></div>
+					<div class="diamond seven"><span>7</span><Image src={clubDiamond} alt="Diamond shape with number seven" /></div>
+					<div class="diamond eight"><span>8</span><Image src={clubDiamond} alt="Diamond shape with number eight" /></div>
+					<div class="diamond nine"><span>9</span><Image src={clubDiamond} alt="Diamond shape with number nine" /></div>
+					<Picture src={amenitiesFirstFloor} formats={["avif", "webp"]} class="wow fadeIn" data-wow-duration="2s" alt="The Diamond Amenities - First Floor" />
+				</div>
+				<div class="cell small-18"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container top bottom">
+		<div class="grid-container club">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18">
+					<h1>Second Floor</h1>
+				</div>
+				<div class="cell small-18 amenity-plan second">
+					<ol>
+						<li><a class="one" role="link" aria-label="Amenities second floor location identifier for Courtyard">Courtyard</a></li>
+						<li><a class="two" role="link" aria-label="Amenities second floor location identifier for Mail Room">Mail Room</a></li>
+						<li><a class="three" role="link" aria-label="Amenities second floor location identifier for Lobby">Lobby</a></li>
+						<li><a class="four" role="link" aria-label="Amenities second floor location identifier for Packages">Packages</a></li>
+						<li><a class="five" role="link" aria-label="Amenities second floor location identifier for Saunas">Saunas</a></li>
+						<li><a class="six" role="link" aria-label="Amenities second floor location identifier for Pool">Pool</a></li>
+						<li><a class="seven" role="link" aria-label="Amenities second floor location identifier for Excercise Room">Excercise Room</a></li>
+						<li><a class="eight" role="link" aria-label="Amenities second floor location identifier for Amenity Office">Amenity Office</a></li>
+						<li><a class="nine" role="link" aria-label="Amenities second floor location identifier for Change Room">Change Room</a></li>
+						<li><a class="ten" role="link" aria-label="Amenities second floor location identifier for Change Room">Change Room</a></li>
+					</ol>
+					<div class="diamond one"><span>1</span><Image src={clubDiamond} alt="Diamond shape with number one" /></div>
+					<div class="diamond two"><span>2</span><Image src={clubDiamond} alt="Diamond shape with number two" /></div>
+					<div class="diamond three"><span>3</span><Image src={clubDiamond} alt="Diamond shape with number three" /></div>
+					<div class="diamond four"><span>4</span><Image src={clubDiamond} alt="Diamond shape with number four" /></div>
+					<div class="diamond five"><span>5</span><Image src={clubDiamond} alt="Diamond shape with number five" /></div>
+					<div class="diamond six"><span>6</span><Image src={clubDiamond} alt="Diamond shape with number six" /></div>
+					<div class="diamond seven"><span>7</span><Image src={clubDiamond} alt="Diamond shape with number seven" /></div>
+					<div class="diamond eight"><span>8</span><Image src={clubDiamond} alt="Diamond shape with number eight" /></div>
+					<div class="diamond nine"><span>9</span><Image src={clubDiamond} alt="Diamond shape with number nine" /></div>
+					<div class="diamond ten"><span>10</span><Image src={clubDiamond} alt="Diamond shape with number ten" /></div>
+					<Picture src={amenitiesSecondFloor} formats={["avif", "webp"]} class="wow fadeIn" data-wow-duration="2s" alt="The Diamond Amenities - Second Floor" />
+				</div>
+				<div class="cell small-18"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container top bottom">
+		<div class="grid-container club">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18">
+					<h1>Third Floor</h1>
+				</div>
+				<div class="cell small-18 amenity-plan third">
+					<ol>
+						<li><a class="one" role="link" aria-label="Amenities third floor location identifier for Lobby">Lobby (Open to Below)</a></li>
+						<li><a class="two" role="link" aria-label="Amenities third floor location identifier for Excercise Room">Excercise Room</a></li>
+						<li><a class="three" role="link" aria-label="Amenities third floor location identifier for Party Room">Party Room</a></li>
+						<li><a class="four" role="link" aria-label="Amenities third floor location identifier for Party Room">Party Room</a></li>
+						<li><a class="five" role="link" aria-label="Amenities third floor location identifier for Kitchen">Kitchen</a></li>
+						<li><a class="six" role="link" aria-label="Amenities third floor location identifier for Billiard Room">Billiard Room</a></li>
+					</ol>
+					<div class="diamond one"><span>1</span><Image src={clubDiamond} alt="Diamond shape with number one" /></div>
+					<div class="diamond two"><span>2</span><Image src={clubDiamond} alt="Diamond shape with number two" /></div>
+					<div class="diamond three"><span>3</span><Image src={clubDiamond} alt="Diamond shape with number three" /></div>
+					<div class="diamond four"><span>4</span><Image src={clubDiamond} alt="Diamond shape with number four" /></div>
+					<div class="diamond five"><span>5</span><Image src={clubDiamond} alt="Diamond shape with number five" /></div>
+					<div class="diamond six"><span>6</span><Image src={clubDiamond} alt="Diamond shape with number six" /></div>
+					<Picture src={amenitiesThirdFloor} formats={["avif", "webp"]} class="wow fadeIn" data-wow-duration="2s" alt="The Diamond Amenities - Third Floor" />
+				</div>
+				<div class="cell small-18"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container top bottom">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18">
+					<h1>Fourth Floor</h1>
+				</div>
+				<div class="cell small-18 amenity-plan fourth">
+					<ol>
+						<li><a class="one" role="link" aria-label="Amenities fourth floor location identifier for Kids Game Room">Kids Game Room</a></li>
+						<li><a class="two" role="link" aria-label="Amenities fourth floor location identifier for Multi-purpose Room">Multi-purpose Room</a></li>
+						<li><a class="three" role="link" aria-label="Amenities fourth floor location identifier for Computer Room">Computer Room</a></li>
+					</ol>
+					<div class="diamond one"><span>1</span><Image src={clubDiamond} alt="Diamond shape with number one" /></div>
+					<div class="diamond two"><span>2</span><Image src={clubDiamond} alt="Diamond shape with number two" /></div>
+					<div class="diamond three"><span>3</span><Image src={clubDiamond} alt="Diamond shape with number three" /></div>
+					<Picture src={amenitiesFourthFloor} formats={["avif", "webp"]} class="wow fadeIn amenitiesFourthFloor" data-wow-duration="2s" alt="The Diamond Amenities - Fourth Floor" />
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	const firstFloorMovie = document.getElementById();
+</script>

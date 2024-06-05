@@ -1,0 +1,65 @@
+---
+import Layout from "../components/Layout.astro";
+const pageTitle = "The Diamond Rental Living - Features";
+import features from "../img/features.jpg";
+import { Image } from "astro:assets";
+import svgDiamondIcon from "../img/diamond.svg";
+import Accordion from "../components/Accordion.jsx";
+import Tabs from "../components/Tabs.jsx";
+
+import { getImage } from "astro:assets";
+import bannerBg from "../img/banner-suites.jpg";
+const bannerBgImage = await getImage({ src: bannerBg });
+---
+
+<Layout {pageTitle}>
+	<section class="reveal-container" style={`background-image: url('${bannerBgImage.src}')`}>
+		<Image src={svgDiamondIcon} class="reveal" loading="eager" alt="The Diamond icon" />
+	</section>
+
+	<section class="container top">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18 medium-9">
+					<h1>Features</h1>
+					<p>The Diamond is not just a building, but a purpose-built rental community with the Junction vibe, offering local flavour and a city feeling. Modern open concept 1, 2 and 3 bedroom suites overlooking the city, while connecting you to every part of it with the TTC at your doorstep and just minutes to the subway, UP Express and GO Train.</p>
+					<div class="rent-now" aria-label="Rent Now Button" role="link">
+						<a href="/contact#inquire">RENT NOW</a>
+					</div>
+				</div>
+				<div class="cell small-18 medium-9">
+					<Image src={features} alt="The Diamond Rental Living Features" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container top">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18 medium-9 small-order-2 medium-order-1">
+					<Image src={features} loading="eager" alt="The Diamond Rental Living Features" />
+				</div>
+				<div class="cell small-18 medium-9 small-order-1 medium-order-2">
+					<h2>Featured Items</h2>
+					<div><Accordion client:visible /></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container top bottom">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18 medium-9 small-order-2 medium-order-1">
+					<h2>Featured Items</h2>
+					<div><Tabs client:visible /></div>
+					<br />
+				</div>
+				<div class="cell small-18 medium-9 small-order-2 medium-order-1">
+					<Image src={features} alt="The Diamond Rental Living Features" />
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

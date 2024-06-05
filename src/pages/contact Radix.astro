@@ -1,0 +1,43 @@
+---
+import Layout from "../components/Layout.astro";
+const pageTitle = "The Diamond Rental Living - Contact Us";
+import { Image } from "astro:assets";
+import svgDiamondIcon from "../img/diamond.svg";
+import updates from "../img/register-theme.svg";
+import { getImage } from "astro:assets";
+import bannerBg from "../img/banner-suites.jpg";
+const bannerBgImage = await getImage({ src: bannerBg });
+import RegisterForm from "../components/Form.jsx";
+import "../styles/form.css";
+---
+
+<Layout {pageTitle}>
+	<section class="reveal-container" style={`background-image: url('${bannerBgImage.src}')`}>
+		<Image src={svgDiamondIcon} class="reveal" loading="eager" alt="The Diamond icon" />
+	</section>
+
+	<section class="container top bottom" id="inquire">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18">
+					<!-- <h1>Contact Us</h1>
+					<p>...</p> -->
+
+					<div class="register-updates">
+						<Image class="wow slideInUp" data-wow-delay="0s" data-wow-duration="2s" src={updates} alt="The Diamond Rental Living Register for Updates" />
+					</div>
+
+					<!-- reCAPTCHA -->
+					<script is:inline src="https://www.google.com/recaptcha/api.js"></script>
+
+					<!-- <RegisterForm client:visible /> -->
+
+					<p class="disclaimer">
+						By submitting this form, you agree to receive via email all related offers, promotions and event information. You can unsubscribe at anytime by clicking on the 'Unsubscribe' link at the bottom of any promotional email. We do not share personal information with third parties.
+						<br />View our <a href="privacy.php">privacy policy</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

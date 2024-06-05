@@ -1,0 +1,448 @@
+:root {
+	--form-width: 400px;
+	--input-font-clr: var(--theme-clr);
+	--input-button-bg: var(--theme-clr);
+	--input-font-weight: 600;
+	--input-font-size: 12px;
+	--input-font: var(--theme-font);
+	--input-font-spacing: 0px;
+	--input-button-bg: var(--theme-clr);
+	--input-border: 1px #ccc solid;
+	--input-border-radius: 3px;
+	--input-padding: 0.7rem 0.75rem;
+	--input-margin: 0 0 1rem;
+	--input-checkbox-bg-clr: #ccc;
+	--input-radio-bg-clr: #ccc;
+	--input-background-clr: #fff;
+	--input-background-focus: #f9f9f9;
+	--input-boxshadow: 0 0 10px #ccc;
+	--input-boxshadow-focus: 0 0 10px #ddd;
+	--input-transition: all ease 0.3s;
+	--input-line-height: 1.25;
+	--input-error-clr: #777;
+}
+
+/* ======================
+   FLEX
+========================= */
+.flex {
+	gap: var(--gap-lrg);
+}
+
+.flex .flex-order-1 {
+	order: 1;
+	width: 40%;
+	flex: 0 0 auto;
+}
+
+.flex .flex-order-2 {
+	order: 2;
+	flex: 1 1 0;
+}
+
+@media (max-width: 700px) {
+	.flex .flex-order-1 {
+		order: 2;
+		width: 100%;
+	}
+
+	.flex .flex-order-2 {
+		order: 1;
+		width: 100%;
+		margin-bottom: 3rem;
+	}
+}
+
+/* ======================
+   GRID (FORM)
+========================= */
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: baseline;
+	gap: 1rem;
+	margin: 0;
+	width: 100%;
+}
+
+.grid .grid-columns-span {
+	grid-column: 1 / 3;
+}
+
+@media (max-width: 1000px) {
+	.grid {
+		max-width: var(--form-width);
+		grid-template-columns: 1fr;
+		margin: 0 auto;
+	}
+	.grid .grid-columns-span {
+		grid-column: 1 / 1;
+	}
+}
+
+/* ======================
+   FORM
+========================= */
+form {
+	width: 100%;
+	text-transform: uppercase;
+	margin: 0 auto;
+}
+
+form > div {
+	position: relative;
+}
+
+form p {
+	margin: 3px 0 0;
+	font-size: 9px;
+	letter-spacing: 0;
+	font-weight: bold;
+	color: var(--input-error-clr);
+	font-style: italic;
+}
+
+form .button {
+	border: 0;
+	padding: 0.5rem 1rem;
+	background: var(--theme-clr);
+	color: #fff;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+form span.helperText {
+	position: absolute;
+	top: 2px;
+	right: 4px;
+	font-size: 10px;
+	/* padding: 3px 5px; */
+	line-height: var(--input-line-height);
+	font-weight: bold;
+	color: var(--theme-clr);
+	text-transform: uppercase;
+	font-family: var(--theme-font);
+	border-radius: 3px;
+	opacity: 0;
+	/* background: #fff; */
+	transition: var(--input-transition);
+}
+
+form input:focus + span,
+form textarea:focus + span,
+form input:focus ~ label + span {
+	opacity: 1;
+	transition: var(--input-transition);
+}
+
+form .message {
+	font-weight: bold;
+}
+
+.disclaimer {
+	font-size: 0.75rem;
+	margin-top: 1.5rem;
+	color: var(--font-clr);
+	line-height: 1.4;
+	text-transform: none;
+}
+
+.grecaptcha-badge {
+	z-index: 99;
+}
+
+.g-recaptcha {
+	transform: scale(0.7);
+	-webkit-transform: scale(0.7);
+	transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+}
+
+/* ====================================
+   PLACEHOLDERS
+======================================= */
+input::placeholder {
+	color: var(--theme-clr);
+}
+
+textarea::placeholder {
+	color: var(--theme-clr);
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+	transition: opacity 0.2s 0.2s ease;
+	opacity: 0;
+}
+
+/* =============================================
+   INPUTS
+================================================ */
+input[type="button"]:hover {
+	background: var(--theme-clr);
+	transition: var(--input-transition);
+}
+
+input::-webkit-date-and-time-value {
+	text-align: left;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	padding: var(--input-padding);
+	/* margin: var(--input-margin); */
+	font-family: var(--input-font);
+	font-size: var(--input-font-size);
+	font-weight: var(--input-font-weight);
+	color: var(--theme-clr);
+	-webkit-text-fill-color: var(--theme-clr);
+	text-transform: uppercase;
+	background-color: var(--input-background-clr);
+	border-radius: var(--input-border-radius);
+	border: var(--input-border);
+	letter-spacing: var(--input-font-spacing);
+	line-height: var(--input-line-height);
+	transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="time"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+	border: var(--input-border);
+	background: var(--input-background-focus);
+	outline: none;
+	color: var(--theme-clr);
+	-webkit-text-fill-color: var(--theme-clr);
+	box-shadow: var(--input-boxshadow-focus);
+	transition: box-shadow 0.2s, border-color 0.2s ease-in-out;
+}
+
+input[type="submit"],
+input[type="button"] {
+	border-radius: var(--input-border-radius);
+}
+
+textarea {
+	max-width: 100%;
+	overflow: auto;
+	height: auto;
+	font-family: inherit;
+	margin: var(--input-margin);
+	font-weight: var(--input-font-weight);
+	background: var(--input-background-clr);
+	border-radius: var(--input-border-radius);
+}
+
+/* =============================================
+   SELECT
+================================================ */
+/* select {
+	width: 100%;
+	min-height: var(--input-min-height);
+	padding: var(--input-padding);
+	margin-bottom: 0.25rem;
+	font-size: var(--input-font-size);
+	text-transform: uppercase;
+	font-weight: var(--input-font-weight);
+	font-family: var(--input-font);
+	letter-spacing: var(--input-font-spacing);
+	color: var(--theme-clr);
+	-webkit-text-fill-color: var(--theme-clr);
+	background-color: var(--input-background-clr);
+	border: var(--input-border);
+	border-radius: var(--input-border-radius);
+	appearance: none;
+	cursor: pointer;
+	background: url('../img/arrow-down.svg') no-repeat right 10px center;
+	background-size: 15px;
+}
+select:focus {
+	outline: none;
+	border: var(--input-border);
+	background-color: var(--input-background-focus);
+	box-shadow: var(--input-boxshadow-focus);
+	transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+} */
+
+/* =============================
+   LABELS
+================================ */
+.Label {
+	color: var(--theme-clr);
+	padding-left: 5px;
+	padding-right: 20px;
+	font-size: var(--input-font-size);
+	font-weight: bold;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.Label.radio {
+	margin-left: 1.25rem;
+}
+
+/* .label {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	transition: var(--input-transition);
+	font-size: var(--input-font-size);
+	font-weight: var(--input-font-weight);
+	line-height: 1;
+}
+
+.label:first-child {
+	margin-right: 1rem;
+}
+
+.label:hover,
+.label:focus-within,
+.label:active {
+	background: var(--background-clr);
+}
+
+.label-text {
+	color: var(--theme-clr);
+	margin-left: 5px;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	font-weight: bold;
+	transition: var(--input-transition);
+}
+ */
+
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 0;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 0;
+}
+
+/* =============================
+   CHECKBOXES
+================================ */
+/* input[type='checkbox'] {
+	margin: 0;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 0.15em;
+	transform: translateY(-0.075em);
+	display: grid;
+	place-content: center;
+}
+
+input[type='checkbox']:checked {
+	background: var(--theme-clr);
+}
+
+input[type='checkbox']:focus {
+	box-shadow: var(--input-boxshadow-focus);
+}
+
+[type='checkbox'] + label {
+	display: inline-block;
+	margin-left: 0.5rem;
+	margin-right: 1rem;
+	margin-bottom: 0;
+}
+
+.margin-left {
+	margin-left: 1rem !important;
+	border: 1px red solid;
+}
+
+.checkbox-input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	z-index: -1;
+} 
+
+.checkbox-design {
+	width: 16px;
+	height: 16px;
+	background: var(--theme-clr);
+	background: linear-gradient(to right bottom, hsl(154, 97%, 62%), hsl(225, 97%, 62%)); 
+	position: relative;
+}
+
+.checkbox-design::before {
+	content: '';
+	display: block;
+	width: inherit;
+	height: inherit;
+	border-radius: inherit;
+	background: #ccc;
+	transform: scale(1);
+	transition: var(--input-transition);
+}
+
+.checkbox-input:checked + .checkbox-design::before {
+	transform: scale(0);
+}
+
+/* =============================
+   RADIO BUTTONS
+================================ */
+.radio-input:checked ~ .label-text {
+	color: var(--theme-clr);
+}
+
+.radio-input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	z-index: -1;
+}
+
+.radio-design {
+	width: 16px;
+	height: 16px;
+	border-radius: 100%;
+	background: var(--theme-clr);
+	/* background: linear-gradient(to right bottom, hsl(154, 97%, 62%), hsl(225, 97%, 62%)); */
+	position: relative;
+}
+
+.radio-design::before {
+	content: "";
+	display: block;
+	width: inherit;
+	height: inherit;
+	border-radius: inherit;
+	background: #ccc;
+	transform: scale(1);
+	transition: var(--input-transition);
+}
+
+.radio-input:checked + .radio-design::before {
+	transform: scale(0);
+}

@@ -1,0 +1,64 @@
+---
+import ThemeIcon from "../components/ThemeIcon.astro";
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<div id="logo-mobile" class="moveUp">
+	<div class="hamburger hamburger--collapse hidden">
+		<div class="hamburger-box">
+			<div class="hamburger-inner"></div>
+		</div>
+	</div>
+</div>
+
+<div class="overlay">
+	<nav id="nav-mobile" role="navigation">
+		<ul>
+			<li style="--animation-order:1;"><a class={currentPath === "" ? "active" : ""} role="link" aria-label="link to homepage" href="/">COMMUNITY</a></li>
+			<li style="--animation-order:2;"><a class={currentPath === "suites" ? "active" : ""} role="link" aria-label="link to suites page" href="/suites">SUITES</a></li>
+			<li style="--animation-order:3;"><a class={currentPath === "club" ? "active" : ""} role="link" aria-label="link to club page" href="/club">CLUB D</a></li>
+			<li style="--animation-order:4;"><a class={currentPath === "neighbourhood" ? "active" : ""} role="link" aria-label="link to neighbourhood page" href="/neighbourhood">NEIGHBOURHOOD</a></li>
+			<li style="--animation-order:5;"><a class={currentPath === "features" ? "active" : ""} role="link" aria-label="link to features page" href="/features">FEATURES</a></li>
+			<li style="--animation-order:6;"><a class={currentPath === "gallery" ? "active" : ""} role="link" aria-label="link to gallery page" href="/gallery">GALLERY</a></li>
+			<li style="--animation-order:7;"><a class={currentPath === "contact" ? "active" : ""} role="link" aria-label="link to contact page" href="/contact">CONTACT</a></li>
+			<li style="--animation-order:8;"><a class={currentPath === "contact" ? "active" : ""} role="link" id="rentLink" aria-label="link to contact page" href="/contact">RENT NOW</a></li>
+		</ul>
+	</nav>
+</div>
+
+<header id="header" class="header">
+	<a id="logo-desktop" role="link" aria-label="Link to homepage" href="/">
+		<div></div>
+	</a>
+
+	<nav role="navigation" id="nav-desktop">
+		<ThemeIcon />
+		<div class="grid-x full">
+			<div class="cell shrink">
+				<a class={currentPath === "" ? "active" : ""} role="link" aria-label="link to homepage" href="/">COMMUNITY</a>
+			</div>
+			<div class="cell shrink">
+				<a class={currentPath === "suites" ? "active" : ""} role="link" aria-label="link to suites page" href="/suites">SUITES</a>
+			</div>
+			<div class="cell shrink">
+				<a class={currentPath === "club" ? "active" : ""} role="link" aria-label="link to club page" href="/club">CLUB D</a>
+			</div>
+			<div class="cell shrink">
+				<a class={currentPath === "neighbourhood" ? "active" : ""} role="link" aria-label="link to neighbourhood page" href="/neighbourhood">NEIGHBOURHOOD</a>
+			</div>
+			<div class="cell shrink">
+				<a class={currentPath === "features" ? "active" : ""} role="link" aria-label="link to features page" href="/features">FEATURES</a>
+			</div>
+			<div class="cell shrink">
+				<a class={currentPath === "gallery" ? "active" : ""} role="link" aria-label="link to gallery page" href="/gallery">GALLERY</a>
+			</div>
+			<div class="cell shrink">
+				<a class={currentPath === "contact" ? "active" : ""} role="link" aria-label="link to contact page" href="/contact">CONTACT</a>
+			</div>
+			<div class="cell shrink">
+				<div class="rent-now" aria-label="Rent Now Button" role="link"><a href="/contact">RENT NOW</a></div>
+			</div>
+		</div>
+	</nav>
+</header>

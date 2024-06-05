@@ -1,0 +1,71 @@
+---
+const currentYear = new Date().getFullYear();
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<footer>
+	<div class="grid-x grid-padding-x">
+		<div class="cell shrink">
+			<ul id="nav" role="navigation">
+				<li><a class={currentPath === "" ? "active" : ""} href="/" role="link" aria-label="link to homepage">COMMUNITY</a></li>
+				<li><a class={currentPath === "suites" ? "active" : ""} href="/suites" role="link" aria-label="link to suites page">SUITES</a></li>
+				<li><a class={currentPath === "club" ? "active" : ""} href="/club" role="link" aria-label="link to club page">CLUB D</a></li>
+				<li><a class={currentPath === "neighbourhood" ? "active" : ""} href="/neighbourhood" role="link" aria-label="link to neighbourhood page">NEIGHBOURHOOD</a></li>
+				<li><a class={currentPath === "features" ? "active" : ""} href="/features" role="link" aria-label="link to features page">FEATURES</a></li>
+				<li><a class={currentPath === "gallery" ? "active" : ""} href="/gallery" role="link" aria-label="link to gallery page">GALLERY</a></li>
+				<li><a class={currentPath === "contact" ? "active" : ""} href="/contact" role="link" aria-label="link to contact page">CONTACT</a></li>
+				<li>
+					<div class="rent-button"><a href="/contact" aria-label="Rent Now Button" role="link">RENT NOW</a></div>
+				</li>
+			</ul>
+		</div>
+		<div class="cell shrink" id="address">
+			<h4>Emsatec Canada Inc.</h4>
+			<div id="email">
+				<a href="mailto:info@junctionrentals.ca">INFO@JUNCTIONRENTALS.CA</a>
+				<br />
+				CALL 647 278 686<br /><br />
+				900 BRANDON AVE.<br />
+				TORONTO, ON. M4V 2Y7
+			</div>
+			<div id="copyright">
+				<a href="/privacy">PRIVACY POLICY</a>
+				<span>© {currentYear} The Diamond</span>
+			</div>
+		</div>
+		<div class="cell auto" id="logo-footer"></div>
+	</div>
+	<!--grid-x-->
+</footer>
+
+<script is:inline src="/scripts.js"></script>
+<script is:inline src="/wow.js"></script>
+<script is:inline>
+	document.addEventListener("astro:page-load", () => {
+		var wow = new WOW({
+			boxClass: "wow",
+			animateClass: "animated",
+			offset: 0,
+			mobile: true,
+			live: true,
+		});
+		wow.init();
+	});
+</script>
+
+<script is:inline src="/headroom.js">
+	document.addEventListener("astro:after:swap", () => {
+		headroom.init();
+	});
+</script>
+
+<script is:inline src="/gsap.min.js"></script>
+
+<!-- <script is:inline src="/locomotive-scroll.min.js"></script>
+<script is:inline>
+	const scroller = new LocomotiveScroll({
+		el: document.querySelector("[data-scroll-container]"),
+		smooth: true,
+	});
+</script> -->

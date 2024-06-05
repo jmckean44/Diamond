@@ -1,0 +1,387 @@
+---
+import Layout from "../components/Layout.astro";
+const pageTitle = "The Diamond Rental Living - Neighbourhood";
+import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
+import banner from "../img/banner-suites.jpg";
+import svgDiamondIcon from "../img/diamond.svg";
+import collageGo from "../img/collage-go.jpg";
+import grill from "../img/collage-grill.jpg";
+import gaslight from "../img/collage-gaslight.jpg";
+import bloor from "../img/collage-bloor.jpg";
+import barque from "../img/collage-barque.jpg";
+import outpost from "../img/collage-outpost.jpg";
+
+import { getImage } from "astro:assets";
+import bannerBg from "../img/banner-suites.jpg";
+const bannerBgImage = await getImage({ src: bannerBg });
+---
+
+<Layout {pageTitle}>
+	<section class="reveal-container" style={`background-image: url('${bannerBgImage.src}')`}>
+		<Image src={svgDiamondIcon} class="reveal" loading="eager" alt="The Diamond icon" />
+	</section>
+
+	<section class="container top">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18 paragraph-max-width">
+					<h1>Neighbourhood</h1>
+					<p>The Diamond is not just a building, but a purpose-built rental community with the Junction vibe, offering local flavour and a city feeling. Modern open concept 1, 2 and 3 bedroom suites overlooking the city, while connecting you to every part of it with the TTC at your doorstep and just minutes to the subway, UP Express and GO Train.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container top bottom">
+		<div class="grid-container">
+			<div class="grid-x align-bottom" id="collage">
+				<div class="cell small-18 medium-10">
+					<Image class="wow slideInRight go" data-wow-delay="0s" data-wow-duration="2s" src={collageGo} alt="The Diamond neighbourhood - The GO" />
+				</div>
+				<div class="cell small-18 medium-8">
+					<Image class="wow slideInLeft grill" data-wow-delay=".5s" data-wow-duration="2.5s" src={grill} alt="The Diamond neighbourhood - Hula Grill" />
+				</div>
+			</div>
+			<div class="grid-x">
+				<div class="cell small-18 medium-7">
+					<Image class="wow slideInUp gaslight" data-wow-delay="1s" data-wow-duration="3s" src={gaslight} alt="The Diamond neighbourhood - The Gaslight" />
+					<Image class="wow slideInDown bloor" data-wow-delay="0s" data-wow-duration="2.25s" src={bloor} alt="The Diamond neighbourhood - Bloor Station" />
+				</div>
+				<div class="cell small-18 medium-11">
+					<div class="grid-x">
+						<div class="cell small-9">
+							<Image class="wow slideInRight barque" data-wow-delay="0s" data-wow-duration="1.5s" src={barque} alt="The Diamond neighbourhood - Barque Smokehouse" />
+						</div>
+						<div class="cell small-9 bridge"></div>
+					</div>
+					<div class="cell small-18">
+						<Image class="wow slideInRight outpost" data-wow-delay="0s" data-wow-duration="2s" src={outpost} alt="The Diamond neighbourhood - Outpost Coffee" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container bottom">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x">
+				<div class="cell small-18">
+					<div id="map"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container bottom">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x" id="tagline">
+				<div class="cell small-18"></div>
+				<div class="cell small-18 medium-6"></div>
+				<div class="cell small-18 medium-12">
+					<p>
+						Don’t just live, shine! The Diamond is designed for a life well lived, from the <strong>24-hour concierge to Club D, an exclusive 20,000 sf fitness centre with an indoor pool, gym, sauna, party and multi-purpose rooms and even a pet spa</strong>, because they deserve the good life too. The Diamond is ready for you to move on in and bring a sparkle to everyday life.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script is:inline>
+	const markers = [];
+	const mapStyles = [
+		{
+			elementType: "geometry",
+			stylers: [
+				{
+					color: "#f5f5f5",
+				},
+			],
+		},
+		{
+			elementType: "labels.icon",
+			stylers: [
+				{
+					visibility: "off",
+				},
+			],
+		},
+		{
+			elementType: "labels.text.fill",
+			stylers: [
+				{
+					color: "#616161",
+				},
+			],
+		},
+		{
+			elementType: "labels.text.stroke",
+			stylers: [
+				{
+					visibility: "off",
+				},
+			],
+		},
+		{
+			featureType: "administrative.land_parcel",
+			elementType: "labels.text.fill",
+			stylers: [
+				{
+					color: "#bdbdbd",
+				},
+			],
+		},
+		{
+			featureType: "poi",
+			elementType: "geometry",
+			stylers: [
+				{
+					color: "#eeeeee",
+				},
+			],
+		},
+		{
+			featureType: "poi",
+			elementType: "labels.text.fill",
+			stylers: [
+				{
+					color: "#757575",
+				},
+			],
+		},
+		{
+			featureType: "poi.park",
+			elementType: "geometry",
+			stylers: [
+				{
+					color: "#e5e5e5",
+				},
+			],
+		},
+		{
+			featureType: "poi.park",
+			elementType: "labels.text.fill",
+			stylers: [
+				{
+					visibility: "off",
+				},
+			],
+		},
+		{
+			featureType: "road",
+			elementType: "geometry",
+			stylers: [
+				{
+					color: "#ffffff",
+				},
+			],
+		},
+		{
+			featureType: "road.arterial",
+			elementType: "labels.text.fill",
+			stylers: [
+				{
+					color: "#757575",
+				},
+			],
+		},
+		{
+			featureType: "road.highway",
+			elementType: "geometry",
+			stylers: [
+				{
+					color: "#dadada",
+				},
+			],
+		},
+		{
+			featureType: "road.highway",
+			elementType: "labels.text.fill",
+			stylers: [
+				{
+					color: "#616161",
+				},
+			],
+		},
+		{
+			featureType: "road.local",
+			elementType: "labels.text.fill",
+			stylers: [
+				{
+					color: "#9e9e9e",
+				},
+			],
+		},
+		{
+			featureType: "transit.line",
+			elementType: "geometry",
+			stylers: [
+				{
+					color: "#e5e5e5",
+				},
+			],
+		},
+		{
+			featureType: "transit.station",
+			elementType: "geometry",
+			stylers: [
+				{
+					color: "#eeeeee",
+				},
+			],
+		},
+		{
+			featureType: "water",
+			elementType: "geometry",
+			stylers: [
+				{
+					color: "#c9c9c9",
+				},
+			],
+		},
+		{
+			featureType: "water",
+			elementType: "labels.text.fill",
+			stylers: [
+				{
+					color: "#9e9e9e",
+				},
+			],
+		},
+	];
+
+	function initMap() {
+		const map = new google.maps.Map(document.getElementById("map"), {
+			zoom: 12,
+			center: new google.maps.LatLng(43.66, -79.4584),
+			disableDefaultUI: true,
+			zoomControl: true,
+			scrollwheel: false,
+			streetViewControl: false,
+			mapTypeId: "roadmap",
+			styles: mapStyles,
+		});
+
+		const iconBase = "img/";
+		const icons = {
+			restaurants: {
+				icon: iconBase + "icon-restaurants-sm.svg",
+			},
+			shops: {
+				icon: iconBase + "icon-shops.svg",
+			},
+			services: {
+				icon: iconBase + "icon-services.svg",
+			},
+			entertainment: {
+				icon: iconBase + "icon-entertainment.svg",
+			},
+			bakery: {
+				icon: iconBase + "icon-bakery.svg",
+			},
+			parks: {
+				icon: iconBase + "icon-parks.svg",
+			},
+			transit: {
+				icon: iconBase + "icon-transit.svg",
+			},
+		};
+
+		//   addMarker({
+		//     map: map,
+		//     lat: 43.6600,
+		//     lng: -79.4584,
+		//     color: '#7A9EAF',
+		//     icon: 'fas fa-graduation-cap',
+		//   });
+
+		//   addMarker({
+		//     map: map,
+		//     lat: 40.37528500,
+		//     lng: 49.84914600,
+		//     color: '#7A9EAF',
+		//     icon: 'fas fa-graduation-cap',
+		//   });
+
+		//   addMarker({
+		//     map: map,
+		//     lat: 40.37965300,
+		//     lng: 49.84875500,
+		//     color: '#42A5F5',
+		//     icon: 'fas fa-subway',
+		//   });
+
+		//   addMarker({
+		//     map: map,
+		//     lat: 40.377984,
+		//     lng: 49.845597,
+		//     color: '#3949AB',
+		//     icon: 'fas fa-bus',
+		//   });
+
+		// }
+
+		// function addMarker(data) {
+		//   new Marker({
+		//     map: data.map,
+		//     position: new google.maps.LatLng(data.lat, data.lng),
+		//     icon: {
+		//       path: MAP_PIN,
+		//       fillColor: data.color,
+		//       fillOpacity: 1,
+		//       strokeColor: '',
+		//       strokeWeight: 0
+		//     },
+		//     map_icon_label: '<i class="' + data.icon + '"></i>'
+		//   });
+		// }
+
+		const properties = [
+			{
+				position: new google.maps.LatLng(43.6601787, -79.4584805),
+				content: "Blondies Pizza",
+				address: "2486 Dundas St W",
+				type: "restaurants",
+			},
+			{
+				position: new google.maps.LatLng(43.6658269, -79.4550978),
+				content: "Defina Wood Fired",
+				address: "1485 Dupont St",
+				type: "restaurants",
+			},
+		];
+
+		const infowindow = new google.maps.InfoWindow({
+			content: "",
+			address: "",
+		});
+
+		// Create markers
+		properties.forEach(function (property) {
+			const marker = new google.maps.marker.AdvancedMarkerElement({
+				position: property.position,
+				content: property.content,
+				address: property.address,
+				icon: icons[property.type].icon,
+				map: map,
+			});
+
+			const content = "<a href='" + property.content + "'>A link to google</a>";
+			marker.addListener("click", function () {
+				infowindow.setContent("<div><strong>" + marker.content + "</strong><br>" + marker.address + "</div>");
+				infowindow.open(map, marker);
+			});
+			markers.push(marker);
+		});
+	}
+
+	// TRIGGER MARKER INFO WINDOW
+	function myClick(id) {
+		google.maps.event.trigger(markers[id], "click");
+	}
+
+	window.initMap = initMap;
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv0PjSqejA7tdzg68pibCXgaGNwyS0-4M&callback=initMap"></script>

@@ -1,0 +1,91 @@
+---
+import Layout from "../components/Layout.astro";
+const pageTitle = "The Diamond Rental Living - Contact Us";
+import { Image } from "astro:assets";
+import svgDiamondIcon from "../img/diamond.svg";
+import updates from "../img/register-theme.svg";
+import { getImage } from "astro:assets";
+import bannerBg from "../img/banner-suites.jpg";
+const bannerBgImage = await getImage({ src: bannerBg });
+---
+
+<Layout {pageTitle}>
+	<section class="reveal-container" style={`background-image: url('${bannerBgImage.src}')`}>
+		<Image src={svgDiamondIcon} class="reveal" loading="eager" alt="The Diamond icon" />
+	</section>
+
+	<section class="container top bottom" id="inquire">
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x align-middle">
+				<div class="cell small-18">
+					<!-- <h1>Contact Us</h1>
+					<p>...</p> -->
+
+					<div class="register-updates">
+						<Image class="wow slideInUp" data-wow-delay="0s" data-wow-duration="2s" src={updates} alt="The Diamond Rental Living Register for Updates" />
+					</div>
+
+					<!-- reCAPTCHA -->
+					<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+					<form action="thankyou.php" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+						<div class="grid-x grid-padding-x">
+							<div class="cell small-18">
+								<input maxlength="20" class="firstName" name="FNAME" type="text" placeholder="FIRST NAME *" />
+								<span>First Name</span>
+							</div>
+							<div class="cell small-18">
+								<input maxlength="30" class="lastName" name="LNAME" type="text" placeholder="LAST NAME *" />
+								<span>Last Name</span>
+							</div>
+							<div class="cell small-18">
+								<input maxlength="30" class="email" name="EMAIL" type="text" placeholder="EMAIL *" />
+								<span>Email</span>
+							</div>
+							<div class="cell small-18">
+								<input maxlength="14" class="phone" name="PHONE" type="text" id="phoneNumber" placeholder="PHONE *" />
+								<span>Phone</span>
+							</div>
+							<div class="cell small-18" id="suite-type">
+								<input type="radio" name="SUITETYPE" value="1 Bedroom" /> &nbsp;1 Bedroom &nbsp; &nbsp;
+								<br class="show-for-small-only" />
+								<input type="radio" name="SUITETYPE" value="2 Bedroom" /> &nbsp;2 Bedroom &nbsp; &nbsp;
+								<br class="show-for-small-only" />
+								<input type="radio" name="SUITETYPE" value="3 Bedroom" /> &nbsp;3 Bedroom
+							</div>
+							<div class="cell small-18">
+								<p class="move-in">MOVE IN DATE</p>
+								<input maxlength="24" name="MOVEIN" type="date" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="MOVE IN DATE" />
+							</div>
+							<div class="cell small-18">
+								<p class="move-in">HOW DID YOU HEAR ABOUT US?</p>
+								<select name="HEAR" class="select">
+									<option value="">Please Select One</option>
+									<option value="A Frames">A Frames</option>
+									<option value="Building Banners">Building Banners</option>
+									<option value="Post Card">Post Card</option>
+									<option value="Social Media">Social Media</option>
+									<option value="Word of Mouth">Word of Mouth</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="grid-x grid-padding-x">
+							<div class="cell small-18">
+								<br />
+								<div class="g-recaptcha" data-sitekey="6LcYLacoAAAAAPeFYUpZ7L1GcS1NXDVct1plvY_8"></div>
+								<input type="submit" name="subscribe" value="SUBMIT" class="button" />
+								<br />
+
+								<p class="disclaimer">
+									By submitting this form, you agree to receive via email all related offers, promotions and event information. You can unsubscribe at anytime by clicking on the 'Unsubscribe' link at the bottom of any promotional email. We do not share personal information with third parties.
+									<br />View our <a href="privacy.php">privacy policy</a>.
+								</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

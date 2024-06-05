@@ -1,0 +1,157 @@
+@import "keyframes.css";
+
+button,
+fieldset,
+input {
+	all: unset;
+}
+
+.TabsRoot {
+	display: flex;
+	flex-direction: row;
+	/* flex-wrap: wrap; */
+	/* width: 100%; */
+	/* box-shadow: 0 1px 10px #ccc; */
+}
+
+.TabsList {
+	flex: 0 1 auto;
+	min-width: 70px;
+}
+
+.TabsTrigger {
+	font-family: inherit;
+	padding: 15px 20px 15px 0;
+	line-height: 1;
+	/* color: var(--theme-clr); */
+	font-weight: bold;
+	user-select: none;
+	cursor: pointer;
+	font-family: var(--theme-font-serif);
+	font-style: italic;
+}
+.TabsTrigger:first-child {
+	border-top-left-radius: 3px;
+}
+.TabsTrigger:last-child {
+	border-top-right-radius: 3px;
+}
+.TabsTrigger:hover,
+.TabsTrigger[data-state="active"] {
+	color: var(--theme-clr);
+	/* background: var(--bg-clr); */
+	transition: all ease 0.3s;
+	/* box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor; */
+}
+.TabsTrigger:focus {
+	position: relative;
+	/* box-shadow: 0 0 0 1px black; */
+}
+
+.TabsContent {
+	flex: 1 1 auto;
+	padding: 0.65rem 0 0 1.5rem;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	outline: none;
+}
+/* .TabsContent:focus {
+	box-shadow: 0 0 10px #ccc;
+} */
+
+@media (max-width: 500px) {
+	.TabsRoot {
+		display: flex;
+		flex-direction: column;
+	}
+	.TabsContent {
+		padding: 0.65rem 0 1rem 0;
+	}
+}
+
+.Text {
+	margin-top: 0;
+	margin-bottom: 20px;
+	/* color: var(--theme-clr); 
+	font-size: 15px;*/
+	line-height: 1.5;
+}
+
+.Fieldset {
+	margin-bottom: 15px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.Label {
+	font-size: 13px;
+	line-height: 1;
+	margin-bottom: 10px;
+	color: var(--theme-clr);
+	display: block;
+}
+
+.Input {
+	flex: 1 0 auto;
+	border-radius: 3px;
+	padding: 0 10px;
+	font-size: 15px;
+	line-height: 1;
+	color: var(--theme-clr);
+	box-shadow: 0 0 0 1px #ccc;
+	height: 35px;
+}
+.Input:focus {
+	box-shadow: 0 0 0 2px var(--theme-clr);
+}
+
+.Button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 3px;
+	padding: 0 15px;
+	font-size: 15px;
+	line-height: 1;
+	font-weight: 500;
+	height: 35px;
+}
+.Button.green {
+	background-color: var(--theme-clr);
+	color: #fff;
+}
+.Button.green:hover {
+	background-color: var(--theme-clr);
+}
+.Button.green:focus {
+	box-shadow: 0 0 0 2px red;
+}
+
+.TabsTrigger[data-state="active"] {
+	animation: fadeIn 500ms ease-in;
+}
+
+.TabsContent[data-state="active"] {
+	animation: slideInUp 0.7s ease;
+}
+
+/*************
+DARK MODE
+*************/
+html.dark .TabsTrigger {
+	color: #fff;
+}
+
+html.dark .TabsTrigger[data-state="active"] {
+	color: var(--theme-clr);
+}
+
+html.dark .AccordionTrigger[data-state="open"] {
+	color: var(--theme-clr);
+}
+html.dark .AccordionContentText,
+html.dark .AccordionTrigger {
+	color: #fff;
+}
